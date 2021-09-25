@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { Fingerprint } from '@material-ui/icons';
 import IconButton from '@mui/material/IconButton';
 import Products from './Products/Products'
+import Categories from './Categories/Categories';
 
 
 
@@ -16,14 +17,18 @@ const useStyles = makeStyles((theme) => ({
     searchButton: {
 
         display: 'flex',
+
     },
     form: {
         marginRight: '480px',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     enterenceDiv: {
         marginRight: '-200px'
+    },
+    navbar: {
+        backgroundColor: '#EF476F'
     }
 
 }));
@@ -32,7 +37,7 @@ export default function App() {
     const classes = useStyles();
     return (
         <div>
-            <Navbar bg="dark" variant="dark">
+            <Navbar variant="dark" className={classes.navbar}>
                 <Container>
                     <Navbar.Brand href="#home">TakasEt.com</Navbar.Brand>
                     <Nav className="me-auto">
@@ -58,7 +63,7 @@ export default function App() {
                 </Container>
             </Navbar>
 
-
+            <Categories />
             <Products></Products>
 
 
