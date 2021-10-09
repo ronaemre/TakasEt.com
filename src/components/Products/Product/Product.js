@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core'
-import { AddShoppingCart } from '@material-ui/icons'
+import SwapHorizontalCircleIcon from '@mui/icons-material/SwapHorizontalCircle';
 import useStyles from './styles'
 
 //props are coming from PRODUCTS to PRODUCT...
@@ -26,7 +26,7 @@ const Product = ({ product }) => {
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
                 <IconButton aria-label="Takas Teklifi Gönder">
-                    <AddShoppingCart />
+                    TAKAS TEKLİFİ GÖNDER <SwapHorizontalCircleIcon />
                 </IconButton>
             </CardActions>
         </Card>
