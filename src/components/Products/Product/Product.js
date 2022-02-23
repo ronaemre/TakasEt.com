@@ -10,19 +10,20 @@ import useStyles from './styles'
 
 const Product = ({ product }) => {
     const classes = useStyles();
+    console.log(product)
     return (
         <Card className={classes.root}>
-            <CardMedia className={classes.media} image={product.image} title={product.name} />
+            <CardMedia className={classes.media} image={product.ProductImage} title={product.productName} />
             <CardContent>
                 <div className={classes.cardContent}>
                     <Typography variant="h5" gutterBottom>
-                        {product.name}
+                        {product.productName}
                     </Typography>
                     <Typography variant="h5" >
-                        {product.price}
+                        {product.productPrice}
                     </Typography>
                 </div>
-                <Typography variant="body2" color="textSecondary">{product.decription}</Typography>
+                <Typography variant="body2" color="textSecondary">{product.productDetails}</Typography>
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
                 <IconButton aria-label="Takas Teklifi Gönder">

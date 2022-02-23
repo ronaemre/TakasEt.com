@@ -19,12 +19,12 @@ const categories = [
     {
         id: 3,
         name: 'Car',
-        image: 'https://www.nfscars.net/media/downloads/images/2016/05/13/f7516226-1803-4bdf-8fea-b73d44a3c909.jpg'
+        image: 'https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/1_rangerover_tracking.jpg'
     },
     {
         id: 4,
         name: 'Motorcycles and Other Vehicles',
-        image: 'https://s3.us-east-2.amazonaws.com/dealer-inspire-vps-vehicle-images/110004754/thumbnails/large/2BXREDD23MV001481/df01efdc60df9d6a309c2aed7aaf4b64.jpg'
+        image: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1586817825-20ex400g-242wt1drf3cg-a-19104142414.png'
     },
     {
         id: 6,

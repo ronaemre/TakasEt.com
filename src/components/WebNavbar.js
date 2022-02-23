@@ -39,8 +39,8 @@ export default function WebNavbar() {
                 <Container>
                     <Navbar.Brand href="#home">TakasEt.com</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="#home" >Home</Nav.Link>
+                        <Nav.Link href="/Add">+Product</Nav.Link>
                         <Nav.Link href="#pricing">Pricing</Nav.Link>
                     </Nav>
                     <Form className={classes.form}>
