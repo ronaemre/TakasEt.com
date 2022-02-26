@@ -1,6 +1,7 @@
 import React from 'react'
-import { Card, CardMedia, CardContent, Typography } from '@material-ui/core'
+import { Card, CardMedia, CardContent, Typography, IconButton } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
+import { getProductsCategory } from "../../../api/api"
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -30,8 +31,14 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const Category = ({ category }) => {
+const Category = ({ category, setProducts }) => {
     const classes = useStyles();
+
+    /*     async function ProductCategoryHandler(id) {
+            const response = await GetProductCategory(id)
+              setProducts(id)
+        }
+     */
     return (
 
         <Card id={"CategoryCard"} className={classes.root}>
@@ -39,7 +46,11 @@ const Category = ({ category }) => {
             <CardContent>
                 <div className={classes.cardContent}>
                     <Typography gutterBottom>
-                        {category.name}
+                        <IconButton
+                            onClick={() => getProductsCategory(setProducts, category.id)}   >
+                            {category.name}
+                        </IconButton>
+
                     </Typography>
                 </div>
             </CardContent>

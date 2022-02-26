@@ -10,6 +10,9 @@ const AddProduct = () => {
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
     const [about, setAbout] = useState("");
+    const [category, setCategory] = useState("");
+
+
 
 
     /*     async function addProduct() {
@@ -28,9 +31,11 @@ const AddProduct = () => {
             alert("Ürün Kaydedildi")
         } */
 
-    /*     async function HomePage() {
-            window.location = "/"
-        } */
+    async function Home() {
+        window.location = "/"
+    }
+
+
     return (
         <div className="container" style={{ backgroundColor: "pink", borderRadius: "20px", marginTop: "180px" }} data-testid="container">
             <div >
@@ -68,14 +73,28 @@ const AddProduct = () => {
                         ></textarea>
                     </div>
                 </div>
+                <div className="form-row">
+                    <select name="choice" onClick={(e) => setCategory(e.target.value)}>
+                        <option value="10" selected>Other</option>
+                        <option value="1">Electronic</option>
+                        <option value="2">Sports, Entertainment and Games</option>
+                        <option value="3">Car</option>
+                        <option value="4">Motorcycles and Other Vehicles</option>
+                        <option value="6">Home and Garden</option>
+                        <option value="7">Fashion - Accessory</option>
+                        <option value="8">Baby and Child</option>
+                        <option value="9">Movies, Books and Music</option>
+
+                    </select>
+                </div>
                 <input
-                    onClick={() => addProduct(name, price, image, about)}
+                    onClick={() => addProduct(name, price, image, about, category)}
                     type="submit"
                     className="btn btn-danger btn-block"
                     value="Add Product"
                 />
                 <input
-                    /*     onClick={() => addProduct(name, price, image, about)} */
+                    onClick={() => Home()}
                     type="button"
                     style={{ margin: "10px" }}
                     className="btn btn-success btn-block"

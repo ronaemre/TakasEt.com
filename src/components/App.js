@@ -22,8 +22,8 @@ export default function App() {
                         exact
                         render={() => (
                             <React.Fragment>
-                                <WebNavbar />
-                                <Categories />
+                                <WebNavbar setProducts={setProducts} />
+                                <Categories setProducts={setProducts} />
                                 <Products products={products} setProducts={setProducts} />
                             </React.Fragment>
                         )}>

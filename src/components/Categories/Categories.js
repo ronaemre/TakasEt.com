@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Category from './Category/Category';
 import Carousel from "react-elastic-carousel";
 import Item from "./Category/Item";
@@ -74,14 +74,17 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const Categories = () => {
+const Categories = ({ setProducts }) => {
     const classes = useStyles();
+
+
+
     return (
         < div className={classes.app} >
             <Carousel breakPoints={breakPoints}>
                 {categories.map((category) => (
                     <Item item key={category.id}>
-                        <Category category={category} />
+                        <Category category={category} setProducts={setProducts} />
                     </Item>
                 ))}
             </Carousel>
