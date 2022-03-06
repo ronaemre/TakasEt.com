@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
-import Product from './Product/Product';
+import MyProduct from './MyProduct/MyProduct';
 import { makeStyles } from '@material-ui/core/styles';
-import { useEffect } from 'react';
-import { getProducts } from '../../api/api';
+import { getMyProducts } from '../../api/api';
+
 
 
 
@@ -21,22 +21,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Products = ({ products, setProducts, userId }) => {
+const MyProducts = ({ products, setProducts, userId }) => {
     const classes = useStyles();
-    /*  const [products, setProducts] = useState([]); */
-
-
-    /*    const getProducts = async () => {
-           const response = await axios.get("http://localhost:3002/products")
-           setProducts(response.data)
-   
-       } */
 
     useEffect(() => {
-        getProducts(setProducts);
-    }, [])
-
-
+        getMyProducts(setProducts, userId)
+    }, [userId])
 
     return (
         <main className={classes.content}>
@@ -44,7 +34,8 @@ const Products = ({ products, setProducts, userId }) => {
             {<Grid container justify="center" spacing={4}>
                 {products.map((product) => (
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                        <Product product={product} userId={userId} />
+                        <MyProduct product={product} userId={userId} />
+
                     </Grid>
                 ))}
             </Grid>}
@@ -53,4 +44,4 @@ const Products = ({ products, setProducts, userId }) => {
 
 }
 
-export default Products;
+export default MyProducts;

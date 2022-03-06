@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Category from './Category/Category';
 import Carousel from "react-elastic-carousel";
 import Item from "./Category/Item";

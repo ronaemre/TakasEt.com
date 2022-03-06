@@ -4,13 +4,14 @@ import { useState } from "react";
 import { addProduct } from "../api/api"
 
 
-const AddProduct = () => {
+const AddProduct = ({ userId }) => {
 
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
     const [about, setAbout] = useState("");
     const [category, setCategory] = useState("");
+
 
 
 
@@ -88,7 +89,7 @@ const AddProduct = () => {
                     </select>
                 </div>
                 <input
-                    onClick={() => addProduct(name, price, image, about, category)}
+                    onClick={() => addProduct(name, price, image, about, category, userId)}
                     type="submit"
                     className="btn btn-danger btn-block"
                     value="Add Product"
