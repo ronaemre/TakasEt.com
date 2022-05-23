@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const getProducts = async (setProducts) => {
-    const response = await axios.get("http://127.0.0.1:3000/products")
+    const response = await axios.get(`http://127.0.0.1:3000/products`)
     setProducts(response.data)
     return response;
 }
@@ -68,22 +68,59 @@ export const isAuthenticated = async () => {
 
 
 
-export async function sendTradeOffer(name, price, image, about, category, userId, senderUserId) {
+export async function sendTradeOffer(name, price, image, about, category, userId, senderUserId, selectedProdName, selectedProdPrice, selectedProdImage, selectProdDetails, status) {
 
     if (name === "" || price === "" || image === "") {
         return
     }
 
     await axios.post(`http://127.0.0.1:3000/trade`, {
-        productname: name,
-        productprice: price,
-        Productimage: image,
-        productdetails: about,
-        categoryid: category,
-        userid: userId,
-        senderuserid: senderUserId
+        productName: name,
+        productPrice: price,
+        ProductImage: image,
+        productDetails: about,
+        categoryId: category,
+        userId: userId,
+        senderUserId: senderUserId,
+        senderProdName: selectedProdName,
+        senderProdPrice: selectedProdPrice,
+        senderProdImage: selectedProdImage,
+        senderProdDetails: selectProdDetails,
+        status: status
     });
     alert("Takas Teklifiniz Başarı ile Gönderildi")
-    /*    window.location = "/" */
+
+}
+
+export const getTradeOffers = async (setTradeOffers) => {
+    const response = await axios.get(`http://127.0.0.1:3000/tradeOffers`)
+    setTradeOffers(response.data)
+    return response;
+}
+
+
+
+export const ProductDeleteHandler = async (id, setProducts, userid) => {
+    const response = await axios.delete(`http://127.0.0.1:3000/product/${id}`)
+    getMyProducts(setProducts, userid)
+    return response;
+
+}
+
+export const register = async (username, password) => {
+    const resp = await axios.post("http://localhost:3000/users/register", {
+        username,
+        password,
+    });
+
+    return resp.status === 201 ? true : false;
+};
+
+export const TradeOfferUpdate = async (id, status) => {
+    const response = await axios.put(`http://127.0.0.1:3000/tradeOffer/${id}`, {
+        status
+    })
+
+    return response;
 
 }

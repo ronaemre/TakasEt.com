@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import MyProduct from './MyProduct/MyProduct';
 import { makeStyles } from '@material-ui/core/styles';
 import { getMyProducts } from '../../api/api';
+import EditProduct from '../EditProduct';
 
 
 
@@ -24,24 +25,26 @@ const useStyles = makeStyles((theme) => ({
 const MyProducts = ({ products, setProducts, userId }) => {
     const classes = useStyles();
 
+
     useEffect(() => {
         getMyProducts(setProducts, userId)
-    }, [userId])
+    }, [userId, setProducts])
+
+
 
     return (
-        <main className={classes.content}>
+        <main className={classes.content} >
             <div className={classes.toolbar}></div>
             {<Grid container justify="center" spacing={4}>
                 {products.map((product) => (
-                    <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                        <MyProduct product={product} userId={userId} />
+                    <Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
+                        <MyProduct product={product} userId={userId} setProducts={setProducts} />
 
                     </Grid>
                 ))}
             </Grid>}
         </main>
     )
-
 }
 
 export default MyProducts;

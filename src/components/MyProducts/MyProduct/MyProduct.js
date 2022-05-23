@@ -1,7 +1,13 @@
-import React from 'react'
-import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core'
-
+import React, { useEffect, useState } from 'react'
+import { Card, CardMedia, CardContent, Typography, IconButton, CardActions, Button } from '@material-ui/core'
+import SwapHorizontalCircleIcon from '@mui/icons-material/SwapHorizontalCircle';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import useStyles from './styles'
+import { ProductDeleteHandler } from '../../../api/api'
+import { getProducts } from '../../../api/api';
+import EditProduct from '../../EditProduct';
+import EditIcon from '@mui/icons-material/Edit';
+
 
 
 
@@ -10,11 +16,12 @@ import useStyles from './styles'
 
 //PRODUCT=CHILD
 
-const MyProduct = ({ product }) => {
+const MyProduct = ({ product, setProducts, userId }) => {
     const classes = useStyles();
-
+    const [open, setOpen] = useState(false)
+    console.log(product)
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} >
             <CardMedia className={classes.media} image={product.ProductImage} title={product.productName} />
             <CardContent>
                 <div className={classes.cardContent}>
@@ -22,18 +29,28 @@ const MyProduct = ({ product }) => {
                         {product.productName}
                     </Typography>
                     <Typography variant="h5" >
-                        {product.productPrice}
+                        {product.productPrice} TL
                     </Typography>
+
                 </div>
                 <Typography variant="body2" color="textSecondary">{product.productDetails}</Typography>
+                <CardActions disableSpacing className={classes.cardActions}>
+                    <IconButton aria-label="DELETE" onClick={() => ProductDeleteHandler(product.id, setProducts, userId)} >
+                        DELETE
+                        <DeleteForeverIcon />
+                    </IconButton>
+                    <IconButton aria-label="EDİT" onClick={() => setOpen(true)} >
+                        UPDATE
+                        <EditIcon />
+                    </IconButton>
+                </CardActions>
+                {
+                    open &&
+                    <EditProduct setOpen={setOpen} product={product} />
+                }
+
             </CardContent>
-            {/*      <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Takas Teklifi Gönder"
-                    onClick={() => sendTradeOffer(product.productName, product.productPrice, product.ProductImage, product.productDetails, product.categoryId, product.userId, userId)}>
-                    TAKAS TEKLİFİ GÖNDER
-                     <SwapHorizontalCircleIcon />
-                </IconButton>
-            </CardActions> */}
+
         </Card>
     )
 }

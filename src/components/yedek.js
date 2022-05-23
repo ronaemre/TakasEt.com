@@ -59,12 +59,10 @@ export default function WebNavbar({ setProducts, username, userId, removeCookie,
         <Navbar variant="dark" className={classes.navbar}>
             <Grid container className={classes.men} >
 
-                <Grid item xs={1} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <img style={{ height: '120px', width: '130px' }} src={logo} />
+                <Grid item xs={1}>
                     <Navbar.Brand href="/" onClick={() => getProducts(setProducts)} >TakasEt.com </Navbar.Brand>
 
                 </Grid>
-
 
                 <Grid item xs={6} className={classes.denee}>
 
