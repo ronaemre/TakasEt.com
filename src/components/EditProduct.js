@@ -3,14 +3,21 @@ import Checkbox from '@mui/material/Checkbox';
 import { updateMaterial } from "../api/api";
 import TextField from '@mui/material/TextField';
 import { Button } from '@material-ui/core'
+import { ProductUpdate } from '../api/api'
 
 
-const EditProduct = ({ product, setOpen }) => {
+
+const EditProduct = ({ product, setOpen, setProducts, userId }) => {
 
     const [productname, setProductName] = useState(product.productName);
     const [productprice, setProductPrice] = useState(product.productPrice);
     const [productimage, setProductImage] = useState(product.ProductImage);
     const [productdetails, setProductDetails] = useState(product.productDetails);
+
+    function Updated() {
+        alert("Product UPDATED")
+        setOpen(false)
+    }
 
     return (
         <Fragment>
@@ -69,8 +76,9 @@ const EditProduct = ({ product, setOpen }) => {
                             type="button"
                             className="btn btn-warning"
                             data-dismiss="modal"
-/*                                 onClick={e => updateMaterial(numbers, details, tedarikci, weight, status, e, registerdate, updatedate, product, setMaterials)}
- */                            >
+
+                            onClick={() => { Updated(); ProductUpdate(product.id, productname, productprice, productimage, productdetails, setProducts, userId) }}
+                        >
                             Edit
                         </button>
                         <button

@@ -34,7 +34,7 @@ export default function App() {
         setUserId(resp.id)
 
     };
-    console.log(userId)
+
 
     useEffect(() => {
         handleIsAuthenticated();

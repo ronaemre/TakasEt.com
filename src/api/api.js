@@ -78,7 +78,7 @@ export async function sendTradeOffer(name, price, image, about, category, userId
         productName: name,
         productPrice: price,
         ProductImage: image,
-        productDetails: about,
+        productDetails: about,            //küçük p kalmış !!
         categoryId: category,
         userId: userId,
         senderUserId: senderUserId,
@@ -116,11 +116,22 @@ export const register = async (username, password) => {
     return resp.status === 201 ? true : false;
 };
 
-export const TradeOfferUpdate = async (id, status) => {
+export const TradeOfferUpdate = async (id, status, setTradeOffers) => {
     const response = await axios.put(`http://127.0.0.1:3000/tradeOffer/${id}`, {
         status
     })
-
+    getTradeOffers(setTradeOffers);
     return response;
+}
 
+
+export const ProductUpdate = async (id, name, price, image, about, setProducts, userid) => {
+    const response = await axios.put(`http://127.0.0.1:3000/updateProduct/${id}`, {
+        productName: name,
+        productPrice: price,
+        productImage: image,
+        productDetails: about,
+    })
+    getMyProducts(setProducts, userid)
+    return response;
 }

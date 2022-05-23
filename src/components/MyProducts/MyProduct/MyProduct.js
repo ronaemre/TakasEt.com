@@ -10,7 +10,6 @@ import EditIcon from '@mui/icons-material/Edit';
 
 
 
-
 //props are coming from PRODUCTS to PRODUCT...
 
 
@@ -19,7 +18,13 @@ import EditIcon from '@mui/icons-material/Edit';
 const MyProduct = ({ product, setProducts, userId }) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false)
-    console.log(product)
+
+    function openHandler() {
+        setOpen(true)
+    }
+
+
+
     return (
         <Card className={classes.root} >
             <CardMedia className={classes.media} image={product.ProductImage} title={product.productName} />
@@ -39,14 +44,14 @@ const MyProduct = ({ product, setProducts, userId }) => {
                         DELETE
                         <DeleteForeverIcon />
                     </IconButton>
-                    <IconButton aria-label="EDİT" onClick={() => setOpen(true)} >
+                    <IconButton aria-label="EDİT" onClick={() => openHandler()} >
                         UPDATE
                         <EditIcon />
                     </IconButton>
                 </CardActions>
                 {
                     open &&
-                    <EditProduct setOpen={setOpen} product={product} />
+                    <EditProduct setOpen={setOpen} product={product} setProducts={setProducts} userId={userId} />
                 }
 
             </CardContent>
