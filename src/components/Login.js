@@ -51,6 +51,10 @@ const Login = ({ username, password, setPassword, setUsername, setCookie }) => {
         return <Redirect to="/" />;
     }
 
+    function RegisterPage() {
+        window.location = "/register"
+    }
+
 
     return (
         <div className={classes.container}  >
@@ -80,13 +84,25 @@ const Login = ({ username, password, setPassword, setUsername, setCookie }) => {
                                 required={true}
                             />
                         </FormGroup>
-                        <div className="d-flex flex-row-reverse">
-                            <input
-                                type="submit"
-                                value="Login"
-                                className="btn btn-success mt-3"
-                            />
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }} >
+                            <div className="d-flex flex-row-reverse">
+                                <input
+                                    onClick={() => RegisterPage()}
+                                    type="submit"
+                                    value="Register"
+                                    className="btn btn-success mt-3"
+                                />
+                            </div>
+                            <div className="d-flex flex-row-reverse">
+                                <input
+                                    type="submit"
+                                    value="Login"
+                                    className="btn btn-success mt-3"
+                                />
+                            </div>
+
                         </div>
+
                     </Form>
                 </div>
             </div>

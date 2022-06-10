@@ -89,7 +89,7 @@ const Product = ({ product, userId, setProducts, products }) => {
                 </CardContent>
                 <CardActions disableSpacing className={classes.cardActions}>
                     <IconButton aria-label="Takas Teklifi Gönder" onClick={handleShow} >
-                        TAKAS TEKLİFİ GÖNDER
+                        Trade Offer
                         <SwapHorizontalCircleIcon />
                     </IconButton>
                 </CardActions>

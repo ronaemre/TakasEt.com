@@ -49,28 +49,29 @@ const AddProduct = ({ userId }) => {
                 />
                 <div className="form-row">
                     <div className="form-group col-md-10" data-testid="name">
-                        <label htmlFor="inputName">Name</label>
-                        <input type="text" className="form-control" name="name" onChange={(e) => setName(e.target.value)} />
+                        <label htmlFor="inputName">Product Name</label>
+                        <input type="text" autoComplete="off" className="form-control" name="name" onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className="form-group col-md-2" data-testid="price">
-                        <label htmlFor="inputRating">Price</label>
-                        <input type="text" className="form-control" name="rating" onChange={(e) => setPrice(e.target.value)} />
+                        <label htmlFor="inputRating">Estimated price</label>
+                        <input type="text" autoComplete="off" className="form-control" name="rating" onChange={(e) => setPrice(e.target.value)} />
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-12" data-testid="image">
                         <label htmlFor="inputImage">Image URL</label>
-                        <input type="text" className="form-control" name="imageURL" onChange={(e) => setImage(e.target.value)} />
+                        <input type="text" autoComplete="off" className="form-control" name="imageURL" onChange={(e) => setImage(e.target.value)} />
                     </div>
                 </div>
                 <div className="form-row" >
                     <div className="form-group col-md-12" data-testid="about">
-                        <label htmlFor="overviewTextarea">About</label>
+                        <label htmlFor="overviewTextarea">About Product</label>
                         <textarea
                             onChange={(e) => setAbout(e.target.value)}
                             className="form-control"
                             name="overview"
                             rows="5"
+                            autoComplete="off"
                         ></textarea>
                     </div>
                 </div>
